@@ -12,7 +12,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane minHeight="700.0" minWidth="1200.0" style="-fx-background-color: #1F1F1F;" stylesheets="@../css/Analytics.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controllers.Analytics">
+<AnchorPane minHeight="700.0" minWidth="1200.0" style="-fx-background-color: #1F1F1F;" stylesheets="@../css/Analytics.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controllers.Profile">
    <children>
       <AnchorPane fx:id="anchorContainerTotalSoldTicket" layoutX="64.0" layoutY="64.0" prefHeight="150.0" prefWidth="250.0" AnchorPane.leftAnchor="64.0">
          <children>

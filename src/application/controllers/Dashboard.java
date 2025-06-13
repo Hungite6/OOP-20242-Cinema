@@ -13,6 +13,8 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
@@ -20,6 +22,8 @@ import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
 public class Dashboard implements Initializable {
+    public Label greetingLabel;
+	public ImageView imageView;
 	private Stage stage;
 	private Scene scene;
 	private Parent root;
@@ -51,7 +55,7 @@ public class Dashboard implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		try {
-			Parent fxml = FXMLLoader.load(getClass().getResource("/application/fxml/Analytics.fxml"));
+			Parent fxml = FXMLLoader.load(getClass().getResource("/application/fxml/ShowALLMovies.fxml"));
 			dashboardContentHboxContainer.getChildren().removeAll();
 			dashboardContentHboxContainer.getChildren().setAll(fxml);
 		} catch (IOException e) {
@@ -67,7 +71,7 @@ public class Dashboard implements Initializable {
 		// Perform different actions based on the clicked button
 		if (clickedButton == dashboardBtn) {
 			// Handle dashboard button click
-			Parent fxml = FXMLLoader.load(getClass().getResource("/application/fxml/Analytics.fxml"));
+			Parent fxml = FXMLLoader.load(getClass().getResource("/application/fxml/Profile.fxml"));
 			dashboardContentHboxContainer.getChildren().removeAll();
 			dashboardContentHboxContainer.getChildren().setAll(fxml);
 		} else if (clickedButton == moviesBtn) {

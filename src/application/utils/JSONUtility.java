@@ -135,7 +135,7 @@ public class JSONUtility {
 		return false; // Modification failed
 	}
 
-	public class MovieData {
+	public static class MovieData {
 		public int id, price, basePrice, totalPrice = 0;
 		public String name, timing, booked, selected;
 		public String[] bookedSeats = {}, selectedSeats = {};
@@ -178,7 +178,7 @@ public class JSONUtility {
 				booked[i] = arr.get(i).getAsString();
 			}
 			MovieData movieData = new MovieData(jsonObject.get("id").getAsInt(), jsonObject.get("name").getAsString(),
-					jsonObject.get("timing").getAsString(), booked, jsonObject.get("basePrice").getAsInt());
+                    jsonObject.get("timing").getAsString(), booked, jsonObject.get("basePrice").getAsInt());
 			reader.close();
 			return movieData;
 		} catch (IOException e) {
@@ -188,7 +188,7 @@ public class JSONUtility {
 	}
 
 	// Update movie data in JSON
-	public boolean updateMovieJson(String[] seats, int price) {
+	public void updateMovieJson(String[] seats, int price) {
 		try {
 			FileReader reader = new FileReader(path_moviedata);
 			Gson gson = new GsonBuilder().setPrettyPrinting().create(); // For pretty printing JSON
@@ -203,10 +203,8 @@ public class JSONUtility {
 			FileWriter writer = new FileWriter(path_moviedata);
 			gson.toJson(movieData, writer);
 			writer.close();
-			return true;
 		} catch (IOException e) {
 			System.out.println("Error updating movie data: " + e.getMessage());
-			return false;
 		}
 	}
 
@@ -216,8 +214,7 @@ public class JSONUtility {
 			JsonElement jsonElement = JsonParser.parseReader(reader);
 			JsonObject jsonObject = jsonElement.getAsJsonObject();
 			reader.close();
-			User user = new User(jsonObject.get("userId").getAsInt(), jsonObject.get("firstName").getAsString(), jsonObject.get("lastName").getAsString(), jsonObject.get("email").getAsString(), jsonObject.get("phoneNumber").getAsString(), jsonObject.get("cityName").getAsString());
-			return user;
+            return new User(jsonObject.get("userId").getAsInt(), jsonObject.get("firstName").getAsString(), jsonObject.get("lastName").getAsString(), jsonObject.get("email").getAsString(), jsonObject.get("phoneNumber").getAsString(), jsonObject.get("cityName").getAsString());
 		} catch (IOException e) {
 			System.out.println("Error getting user data: " + e.getMessage());
 			return null;

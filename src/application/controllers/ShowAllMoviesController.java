@@ -142,7 +142,7 @@ public class ShowAllMoviesController implements Initializable {
 			ds.setUrl(DB_URL);
 
 			con = ds.getConnection();
-			String sql = "SELECT * FROM movies WHERE name LIKE  ? OR gener LIKE  ?";
+			String sql = "SELECT * FROM movies WHERE name LIKE ? OR gener LIKE ?";
 			ps = con.prepareStatement(sql);
 			ps.setString(1, "%" + searchQuery + "%");
 			ps.setString(2, "%" + searchQuery + "%");

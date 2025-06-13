@@ -4,6 +4,12 @@
 #dashboardAnchoreContainer {
 	-fx-background-color: #c1121f;	
 }
+#imageView {
+    -fx-shape: "circle";
+    -fx-border-color: white;
+    -fx-border-width: 2;
+    -fx-border-radius: 90;
+}
 #dashboardBtn,
 #moviesBtn,
 #bookingsBtn,
