@@ -12,7 +12,7 @@ import javafx.scene.chart.XYChart;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 
-public class Analytics implements Initializable {
+public class Profile implements Initializable {
 
 	@FXML
 	private AnchorPane anchorContainerTotalAvailableMovies;

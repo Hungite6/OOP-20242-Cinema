@@ -21,7 +21,7 @@
    <children>
       <AnchorPane minHeight="700.0" minWidth="1200.0" style="-fx-background-color: #778da9;">
          <children>
-            <VBox prefHeight="581.0" prefWidth="944.0" spacing="50.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <VBox spacing="50.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
                   <HBox prefHeight="327.0" prefWidth="1168.0">
                      <children>
@@ -62,7 +62,7 @@
                               </HBox>
                               <Text fx:id="movieDescription" layoutX="588.0" layoutY="162.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="519.13671875">
                                  <font>
-                                    <Font size="14.0" />
+                                    <Font name="System Bold" size="15.0" />
                                  </font>
                               </Text>
                            </children>

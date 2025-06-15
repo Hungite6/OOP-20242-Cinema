@@ -5,9 +5,14 @@
   "totalPrice": 0,
   "name": "",
   "timing": "",
-  "selected": "1D",
+  "selected": "19F, 18E, 17E, 17H, 17D, 16E",
   "bookedSeats": [],
   "selectedSeats": [
-    "1D"
+    "19F",
+    "18E",
+    "17E",
+    "17H",
+    "17D",
+    "16E"
   ]
 }

@@ -196,6 +196,9 @@ public class DBUtility {
 	}
 
 //	Fetch Movies Table data
+	private static final SimpleDateFormat sdfInput = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+	private static final SimpleDateFormat sdfOutput = new SimpleDateFormat("dd-MM-yyyy");
+
 	public static void getMoviesData(ResultSet rs, List<Movie> movies) {
 		try {
 			while (rs.next()) {
@@ -210,8 +213,6 @@ public class DBUtility {
 				String getNextShow = rs.getString("showDatesAndTimings");
 				String getActorsList = rs.getString("actorsList");
 
-				SimpleDateFormat sdfInput = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-				SimpleDateFormat sdfOutput = new SimpleDateFormat("dd-MM-yyyy");
 				String getMovieRealeseDate = sdfOutput.format(sdfInput.parse(getMovieRealeseDateTime.toString()));
 
 				Movie movie = new Movie();
@@ -368,7 +369,7 @@ public class DBUtility {
 		return ticketCounts;
 	}
 
-	public static boolean updateBookingData () {
+	public static void updateBookingData () {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		try {
@@ -395,10 +396,8 @@ public class DBUtility {
 
 			int rowsInserted = pstmt.executeUpdate();
 			// Check if the insert was successful
-			return rowsInserted > 0;
 		} catch (Exception e) {
 			System.out.println(e.toString());
-			return false;
 		}
 	}
 

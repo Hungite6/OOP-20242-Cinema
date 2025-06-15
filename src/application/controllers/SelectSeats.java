@@ -69,7 +69,7 @@ public class SelectSeats implements Initializable {
 
 	public void handleProceedToPaymentPageClick(ActionEvent event) throws IOException {
 		if(selectedSeats.length > 0){
-			util.updateMovieJson(selectedSeats, totalPrice);
+			util.updateMovieJson(selectedSeats, totalPrice/1000);
 			@SuppressWarnings("unused")
 			MovieData moviedata = util.getMovieJson();
 	
@@ -191,12 +191,13 @@ public class SelectSeats implements Initializable {
 				btn.setOnAction(event -> handleSelection(event));
 			}
 			if (i >= 190) {
+				totalPrice = !isBooked ? totalPrice + (basePrice + 50) * 1000 : totalPrice;
 				selectSeatsWrap1.add(btn, i % 10, i / 10);
 			} else if (i < 10) {
-				totalPrice = !isBooked ? totalPrice + basePrice + 70 : totalPrice;
+				totalPrice = !isBooked ? totalPrice + (basePrice + 70) * 1000 : totalPrice;
 				selectSeatsWrap3.add(btn, i % 10, i / 10);
 			} else {
-				totalPrice = !isBooked ? totalPrice + basePrice : totalPrice;
+				totalPrice = !isBooked ? totalPrice + basePrice * 1000 : totalPrice;
 				selectSeatsWrap2.add(btn, i % 10, 18 - i / 10);
 			}
 		}
@@ -210,8 +211,10 @@ public class SelectSeats implements Initializable {
 
 	public void handleSelection(ActionEvent event) {
 		Button btn = ((Button) event.getSource());
+		String seat = btn.getText();
 		// System.out.println(btn.getStyleClass());
 		boolean alreadySelected = Arrays.stream(selectedSeats).anyMatch(e -> e == btn.getText());
+
 		if (alreadySelected) {
 			selectedSeats = Arrays.stream(selectedSeats).filter(el -> el != btn.getText()).toArray(String[]::new);
 			selectedSeats = Arrays.stream(selectedSeats).filter(el -> el != null).toArray(String[]::new);
