@@ -19,7 +19,7 @@
     <children>
         <AnchorPane layoutY="23.0" minHeight="700.0" minWidth="1200.0" styleClass="middleContainer" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="20.0">
             <children>
-                <Button fx:id="paymentButton1" alignment="BASELINE_LEFT" contentDisplay="RIGHT" graphicTextGap="400.0" layoutX="65.0" layoutY="348.0" mnemonicParsing="false" onAction="#handleUpiPaymentOptionClick" onMouseEntered="#hover" onMouseExited="#Removehover" prefHeight="64.0" prefWidth="552.0" styleClass="PaymentButton" text="UPI" textFill="WHITE">
+                <Button fx:id="paymentButton1" alignment="BASELINE_LEFT" contentDisplay="RIGHT" graphicTextGap="400.0" layoutX="65.0" layoutY="348.0" mnemonicParsing="false" onAction="#handleBankPaymentOptionClick" onMouseEntered="#hover" onMouseExited="#Removehover" prefHeight="70.0" prefWidth="565.0" styleClass="PaymentButton" text="Bank" textAlignment="CENTER" textFill="WHITE">
                     <graphic>
                         <ImageView fitHeight="48.0" fitWidth="61.0" pickOnBounds="true" preserveRatio="true">
                             <image>
@@ -63,7 +63,7 @@
                         <Font size="43.0" />
                     </font>
                 </Label>
-                <Button fx:id="paymentButton3" alignment="BASELINE_LEFT" contentDisplay="RIGHT" graphicTextGap="200.0" layoutX="59.0" layoutY="440.0" mnemonicParsing="false" onAction="#handleCreditDebitCardOptionClick" onMouseEntered="#hover" onMouseExited="#Removehover" prefHeight="64.0" prefWidth="552.0" styleClass="PaymentButton" text="Credit/Debit Card" textFill="WHITE">
+                <Button fx:id="paymentButton3" alignment="BASELINE_LEFT" contentDisplay="RIGHT" graphicTextGap="200.0" layoutX="65.0" layoutY="444.0" mnemonicParsing="false" onAction="#handleCreditDebitCardOptionClick" onMouseEntered="#hover" onMouseExited="#Removehover" prefHeight="70.0" prefWidth="565.0" styleClass="PaymentButton" text="Credit/Debit Card" textFill="WHITE">
                     <graphic>
                         <ImageView fitHeight="48.0" fitWidth="61.0" pickOnBounds="true" preserveRatio="true">
                             <image>
