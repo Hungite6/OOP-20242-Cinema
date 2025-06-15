@@ -90,9 +90,9 @@ public class SelectPayment implements Initializable {
 		// Page Changing Logic ----
 	}
 
-	public void handleUpiPaymentOptionClick(ActionEvent event) throws IOException {
-		System.out.println("UPI Selected");
-		root = FXMLLoader.load(getClass().getResource("/application/fxml/UPIScreen.fxml"));
+	public void handleBankPaymentOptionClick(ActionEvent event) throws IOException {
+		System.out.println("Bank Method Selected");
+		root = FXMLLoader.load(getClass().getResource("/application/fxml/BankSelection.fxml"));
 		stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 		double currentWidth = stage.getWidth();
 		double currentHeight = stage.getHeight();
@@ -105,7 +105,6 @@ public class SelectPayment implements Initializable {
 
 	public void handleCreditDebitCardOptionClick(ActionEvent event) throws IOException{
 		System.out.println("Credit Debit Selected");
-
 		root = FXMLLoader.load(getClass().getResource("/application/fxml/CreditCard.fxml"));
 		stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 		double currentWidth = stage.getWidth();
