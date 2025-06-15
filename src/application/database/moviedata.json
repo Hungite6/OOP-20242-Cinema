@@ -1,18 +1,17 @@
 {
   "id": 0,
-  "price": 700,
+  "price": 1200,
   "basePrice": 0,
   "totalPrice": 0,
   "name": "",
   "timing": "",
-  "selected": "19F, 18E, 17E, 17H, 17D, 16E",
+  "selected": "19G, 19H, 19I, 19J, 1A",
   "bookedSeats": [],
   "selectedSeats": [
-    "19F",
-    "18E",
-    "17E",
-    "17H",
-    "17D",
-    "16E"
+    "19G",
+    "19H",
+    "19I",
+    "19J",
+    "1A"
   ]
 }
