@@ -75,13 +75,16 @@ public class Login {
 			errorPassword.setVisible(false);
 
 			// SQL Query
-			Boolean isCredentialsValid = DBUtility.validateLogin(emailAddress, password);
+			Object[] loginResult = DBUtility.validateLogin(emailAddress, password);
+			boolean isCredentialsValid = (boolean) loginResult[0];
+			boolean isSuperUser = ((Number) loginResult[1]).intValue() == 1;
 
-			// credentials valid - redirect to dashboard
+			// Credentials valid - redirect to appropriate dashboard
 			if (isCredentialsValid) {
 				errorLoginMessage.setVisible(false);
 
-				root = FXMLLoader.load(getClass().getResource("/application/fxml/Dashboard.fxml"));
+				String fxmlPath = isSuperUser ? "/manager/view/DashboardAdmin.fxml" : "/application/fxml/Dashboard.fxml";
+				root = FXMLLoader.load(getClass().getResource(fxmlPath));
 				stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 				double currentWidth = stage.getWidth();
 				double currentHeight = stage.getHeight();
@@ -90,19 +93,17 @@ public class Login {
 				stage.setScene(scene);
 				stage.show();
 			} else {
-				// credentials invalid - show Error message
+				// Credentials invalid - show error message
 				errorLoginMessage.setVisible(true);
 				errorLoginMessage.setText("Invalid Email or Password.");
 			}
-
 		} else {
-			// show the Error message Labels and update Texts
+			// Show error message labels and update texts
 			errorEmailAddress.setVisible(true);
 			errorPassword.setVisible(true);
 			errorEmailAddress.setText(emailErrorMessage);
 			errorPassword.setText(passwordErrorMessage);
 		}
-
 	}
 
 	// move to sign up screen

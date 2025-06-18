@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
@@ -19,9 +26,9 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="manager.DashboardAdminController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="manager.DashboardAdminController">
    <children>
-      <BorderPane prefHeight="806.0" prefWidth="1400.0">
+      <BorderPane>
          <left>
             <VBox prefHeight="800.0" prefWidth="280.0" style="-fx-background-color: linear-gradient(to bottom, #2c3e50, #34495e); -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 10, 0, 2, 2);" BorderPane.alignment="CENTER">
                <children>
@@ -72,332 +79,334 @@
             <ScrollPane fitToHeight="true" fitToWidth="true" prefHeight="834.0" prefWidth="1120.0" style="-fx-background-color: #ecf0f1;">
                <content>
                   <AnchorPane prefHeight="800.0" prefWidth="1120.0">
-                     
-                     <AnchorPane fx:id="dashboardView" layoutY="0.0" prefHeight="800.0" prefWidth="1120.0" visible="true">
-                        <children>
-                           <Label layoutX="30.0" layoutY="20.0" text="Dashboard Tổng Quan" textFill="#2c3e50">
-                              <font>
-                                 <Font name="System Bold" size="28.0" />
-                              </font>
-                           </Label>
-                           
-                           <HBox alignment="CENTER" layoutX="30.0" layoutY="70.0" spacing="30.0">
-                              <children>
-                                 <VBox alignment="CENTER" prefHeight="150.0" prefWidth="250.0" spacing="10.0" style="-fx-background-color: linear-gradient(to bottom, #27ae60, #2ecc71); -fx-background-radius: 15; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 8, 0, 0, 4);">
-                                    <padding>
-                                       <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-                                    </padding>
-                                    <children>
-                                       <Label text="💰" textFill="WHITE">
-                                          <font>
-                                             <Font size="36.0" />
-                                          </font>
-                                       </Label>
-                                       <Label text="Doanh Thu" textFill="WHITE">
-                                          <font>
-                                             <Font name="System Bold" size="16.0" />
-                                          </font>
-                                       </Label>
-                                       <Label fx:id="revenueLabel" text="5,000,000 VNĐ" textFill="WHITE">
-                                          <font>
-                                             <Font name="System Bold" size="20.0" />
-                                          </font>
-                                       </Label>
-                                    </children>
-                                 </VBox>
-                                 
-                                 <VBox alignment="CENTER" prefHeight="150.0" prefWidth="250.0" spacing="10.0" style="-fx-background-color: linear-gradient(to bottom, #3498db, #2980b9); -fx-background-radius: 15; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 8, 0, 0, 4);">
-                                    <padding>
-                                       <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-                                    </padding>
-                                    <children>
-                                       <Label text="🎬" textFill="WHITE">
-                                          <font>
-                                             <Font size="36.0" />
-                                          </font>
-                                       </Label>
-                                       <Label text="Tổng Số Phim" textFill="WHITE">
-                                          <font>
-                                             <Font name="System Bold" size="16.0" />
-                                          </font>
-                                       </Label>
-                                       <Label fx:id="totalMoviesLabel" text="50" textFill="WHITE">
-                                          <font>
-                                             <Font name="System Bold" size="24.0" />
-                                          </font>
-                                       </Label>
-                                    </children>
-                                 </VBox>
-                                 
-                                 <VBox alignment="CENTER" prefHeight="150.0" prefWidth="250.0" spacing="10.0" style="-fx-background-color: linear-gradient(to bottom, #e67e22, #d35400); -fx-background-radius: 15; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 8, 0, 0, 4);">
-                                    <padding>
-                                       <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-                                    </padding>
-                                    <children>
-                                       <Label text="🎫" textFill="WHITE">
-                                          <font>
-                                             <Font size="36.0" />
-                                          </font>
-                                       </Label>
-                                       <Label text="Vé Đã Bán" textFill="WHITE">
-                                          <font>
-                                             <Font name="System Bold" size="16.0" />
-                                          </font>
-                                       </Label>
-                                       <Label fx:id="totalTicketsLabel" text="156" textFill="WHITE">
-                                          <font>
-                                             <Font name="System Bold" size="24.0" />
-                                          </font>
-                                       </Label>
-                                    </children>
-                                 </VBox>
-                                 
-                                 <VBox alignment="CENTER" prefHeight="150.0" prefWidth="250.0" spacing="10.0" style="-fx-background-color: linear-gradient(to bottom, #9b59b6, #8e44ad); -fx-background-radius: 15; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 8, 0, 0, 4);">
-                                    <padding>
-                                       <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-                                    </padding>
-                                    <children>
-                                       <Label text="👥" textFill="WHITE">
-                                          <font>
-                                             <Font size="36.0" />
-                                          </font>
-                                       </Label>
-                                       <Label text="Người Dùng" textFill="WHITE">
-                                          <font>
-                                             <Font name="System Bold" size="16.0" />
-                                          </font>
-                                       </Label>
-                                       <Label fx:id="totalUsersLabel" text="1,248" textFill="WHITE">
-                                          <font>
-                                             <Font name="System Bold" size="24.0" />
-                                          </font>
-                                       </Label>
-                                    </children>
-                                 </VBox>
-                              </children>
-                           </HBox>
-                           
-                           <VBox alignment="CENTER" layoutX="30.0" layoutY="260.0" prefHeight="500.0" prefWidth="1060.0" spacing="20.0" style="-fx-background-color: white; -fx-background-radius: 15; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 8, 0, 0, 4);">
-                              <padding>
-                                 <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-                              </padding>
-                              <children>
-                                 <Label textFill="#2c3e50">
-                                    <font>
-                                       <Font name="System Bold" size="20.0" />
-                                    </font>
-                                 </Label>
-                                 <HBox alignment="CENTER" prefHeight="400.0" prefWidth="1000.0" spacing="10.0" style="-fx-background-color: #f8f9fa; -fx-background-radius: 10; -fx-border-color: #dee2e6; -fx-border-radius: 10;">
-                                    <children>
-                                       <Button fx:id="prevImageButton" mnemonicParsing="false" style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-background-radius: 5; -fx-font-size: 18px;" text="◀" />
-                                       <ImageView fx:id="dashboardImageView" fitHeight="380.0" fitWidth="800.0" pickOnBounds="true" preserveRatio="true" />
-                                       <Button fx:id="nextImageButton" mnemonicParsing="false" style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-background-radius: 5; -fx-font-size: 18px;" text="▶" />
-                                    </children>
-                                 </HBox>
-                              </children>
-                           </VBox>
-                        </children>
-                     </AnchorPane>
-                     
-                     <AnchorPane fx:id="movieManagementView" layoutY="0.0" prefHeight="800.0" prefWidth="1120.0" visible="false">
-                        <children>
-                           <AnchorPane layoutX="36.0" layoutY="73.0" prefHeight="701.0" prefWidth="319.0" style="-fx-background-radius: 15; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 8, 0, 0, 4); -fx-background-color: white;">
-                              <children>
-                                 <AnchorPane layoutX="128.0" layoutY="14.0" prefHeight="164.0" prefWidth="167.0" style="-fx-background-color: white; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 8, 0, 0, 4);">
-                                    <children>
-                                       <ImageView fx:id="moviePosterImageView" fitHeight="164.0" fitWidth="169.0" layoutX="14.0" pickOnBounds="true" preserveRatio="true" />
-                                    </children>
-                                 </AnchorPane>
-                                 <Button fx:id="selectMovieImageButton" layoutX="22.0" layoutY="81.0" mnemonicParsing="false" style="-fx-background-color: #3498db; -fx-background-radius: 5;" text="📁Chọn ảnh:" />
-                                 <TextField fx:id="movieNameField" layoutX="14.0" layoutY="207.0" prefHeight="26.0" prefWidth="133.0" promptText="🎬 Tên phim" style="-fx-background-radius: 8; -fx-background-color: #dee2e6; -fx-border-radius: 8;" />
-                                 <TextField fx:id="movieGenreField" layoutX="14.0" layoutY="243.0" prefHeight="26.0" prefWidth="133.0" promptText="🎭 Thể loại" style="-fx-background-radius: 8; -fx-background-color: #dee2e6; -fx-border-radius: 8;" />
-                                 <TextField fx:id="movieDescriptionField" layoutX="14.0" layoutY="276.0" prefHeight="26.0" prefWidth="133.0" promptText="📝 Mô tả" style="-fx-background-radius: 8; -fx-background-color: #dee2e6; -fx-border-radius: 8;" />
-                                 <TextField fx:id="movieTotalSeatsField" layoutX="14.0" layoutY="311.0" prefHeight="26.0" prefWidth="133.0" promptText="💺 Tổng số ghế" style="-fx-background-radius: 8; -fx-background-color: #dee2e6; -fx-border-radius: 8;" />
-                                 <DatePicker fx:id="movieReleaseDatePicker" layoutX="14.0" layoutY="345.0" prefHeight="26.0" prefWidth="133.0" promptText="📅 Ngày chiếu" style="-fx-background-radius: 8; -fx-background-color: #dee2e6; -fx-border-radius: 8;" />
-                                 <TextField fx:id="movieShowTimeField" layoutX="14.0" layoutY="379.0" prefHeight="26.0" prefWidth="133.0" promptText="🕐 Giờ chiếu (HH:mm)" style="-fx-background-radius: 8; -fx-background-color: #dee2e6; -fx-border-radius: 8;" />
-                                 <TextField fx:id="movieTagsField" layoutX="171.0" layoutY="207.0" prefHeight="26.0" prefWidth="133.0" promptText="🏷️ Tags" style="-fx-background-radius: 8; -fx-background-color: #dee2e6; -fx-border-radius: 8;" />
-                                 <ComboBox fx:id="movieStatusComboBox" layoutX="172.0" layoutY="242.0" prefHeight="28.0" prefWidth="132.0" promptText="Trạng thái:" />
-                                 <TextField fx:id="movieActorsListField" layoutX="171.0" layoutY="276.0" prefHeight="26.0" prefWidth="133.0" promptText="👤ActorList" style="-fx-background-radius: 8; -fx-background-color: #dee2e6; -fx-border-radius: 8;" />
-                                 <TextField fx:id="moviePerPriceField" layoutX="171.0" layoutY="311.0" prefHeight="26.0" prefWidth="133.0" promptText="💵perPrices" style="-fx-background-radius: 8; -fx-background-color: #dee2e6; -fx-border-radius: 8;" />
-                                 <TextField fx:id="movieRatingsField" layoutX="171.0" layoutY="345.0" prefHeight="26.0" prefWidth="133.0" promptText="🟊Rating" style="-fx-background-radius: 8; -fx-background-color: #dee2e6; -fx-border-radius: 8;" />
-                                 <TextField fx:id="movieShowDatesAndTimingsField" layoutX="171.0" layoutY="379.0" prefHeight="26.0" prefWidth="133.0" promptText="🕒showDatesAndTimings" style="-fx-background-radius: 8; -fx-background-color: #dee2e6; -fx-border-radius: 8;" />
-                                 <Button fx:id="addMovieButton" layoutX="37.0" layoutY="462.0" mnemonicParsing="false" style="-fx-background-color: #3498db; -fx-background-radius: 5;" text="+ Thêm" />
-                                 <Button fx:id="editMovieButton" layoutX="129.0" layoutY="462.0" mnemonicParsing="false" style="-fx-background-color: #3498db; -fx-background-radius: 5;" text="✏️ Sửa" />
-                                 <Button fx:id="deleteMovieButton" layoutX="220.0" layoutY="462.0" mnemonicParsing="false" style="-fx-background-color: #3498db; -fx-background-radius: 5;" text="🗑️ Xóa" />
-                                 <TextField fx:id="movieBookedSeatsCountField" layoutX="14.0" layoutY="412.0" prefHeight="26.0" prefWidth="133.0" promptText="💺 Số ghế đã đặt" style="-fx-background-radius: 8; -fx-background-color: #dee2e6; -fx-border-radius: 8;" />
-                              </children>
-                           </AnchorPane>
-                           <Label layoutX="30.0" layoutY="20.0" text="Quản Lý Phim" textFill="#2c3e50">
-                              <font>
-                                 <Font name="System Bold" size="28.0" />
-                              </font>
-                           </Label>
-                           
-                           <HBox layoutX="376.0" layoutY="70.0" prefHeight="706.0" prefWidth="699.0" spacing="20.0">
-                              <children>
-                                 
-                                 <VBox prefHeight="680.0" prefWidth="786.0" style="-fx-background-color: white; -fx-background-radius: 15; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 8, 0, 0, 4);">
-                                    <padding>
-                                       <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-                                    </padding>
-                                    <children>
-                                       <Label text="Danh Sách Phim" textFill="#2c3e50">
-                                          <font>
-                                             <Font name="System Bold" size="18.0" />
-                                          </font>
-                                       </Label>
-                                       <TableView fx:id="movieTableView" prefHeight="639.0" prefWidth="681.0" style="-fx-background-radius: 10;">
-                                          <columns>
-                                             <TableColumn fx:id="colMovieId" prefWidth="60.0" text="ID" />
-                                             <TableColumn fx:id="colMovieName" prefWidth="120.0" text="Tên Phim" />
-                                             <TableColumn fx:id="colMovieGenre" prefWidth="100.0" text="Thể Loại" />
-                                             <TableColumn fx:id="colMovieDescription" prefWidth="150.0" text="Mô Tả" />
-                                             <TableColumn fx:id="colMovieStatus" prefWidth="80.0" text="Trạng Thái" />
-                                             <TableColumn fx:id="colMovieTotalSeats" prefWidth="70.0" text="Tổng Số Ghế" />
-                                             <TableColumn fx:id="colMovieShowTime" prefWidth="100.0" text="Giờ Chiếu" />
-                                             <TableColumn fx:id="colMoviePerPrice" prefWidth="100.0" text="Giá/Vé" />
-                                             <TableColumn fx:id="colMovieRatings" prefWidth="80.0" text="Rating" />
-                                             <TableColumn fx:id="colMovieReleaseDate" prefWidth="100.0" text="Ngày CN" />
-                                             <TableColumn fx:id="colMovieBookedSeats" prefWidth="100.0" text="Ghế đã đặt" />
-                                          </columns>
-                                          <columnResizePolicy>
-                                             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-                                          </columnResizePolicy>
-                                       </TableView>
-                                    </children>
-                                 </VBox>
-                              </children>
-                           </HBox>
-                        </children>
-                     </AnchorPane>
-                     
-                     <AnchorPane fx:id="customerManagementView" layoutY="0.0" prefHeight="800.0" prefWidth="1120.0" visible="false">
-                        <children>
-                           <Label layoutX="30.0" layoutY="20.0" text="Quản Lý Khách Hàng" textFill="#2c3e50">
-                              <font>
-                                 <Font name="System Bold" size="28.0" />
-                              </font>
-                           </Label>
-                           
-                           <HBox layoutX="30.0" layoutY="70.0" spacing="20.0">
-                              <children>
-                                 <VBox prefHeight="680.0" prefWidth="350.0" spacing="15.0" style="-fx-background-color: white; -fx-background-radius: 15; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 8, 0, 0, 4);">
-                                    <padding>
-                                       <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-                                    </padding>
-                                    <children>
-                                       <Label text="Thông Tin Khách Hàng" textFill="#2c3e50">
-                                          <font>
-                                             <Font name="System Bold" size="18.0" />
-                                          </font>
-                                       </Label>
-                                       
-                                       <TextField fx:id="userFirstNameField" promptText="👤 Họ" style="-fx-background-radius: 8; -fx-border-color: #dee2e6; -fx-border-radius: 8; -fx-padding: 10;" />
-                                       <TextField fx:id="userLastNameField" promptText="👤 Tên" style="-fx-background-radius: 8; -fx-border-color: #dee2e6; -fx-border-radius: 8; -fx-padding: 10;" />
-                                       <TextField fx:id="userEmailField" promptText="📧 Email" style="-fx-background-radius: 8; -fx-border-color: #dee2e6; -fx-border-radius: 8; -fx-padding: 10;" />
-                                       <TextField fx:id="userPhoneNumberField" promptText="📱 Số điện thoại" style="-fx-background-radius: 8; -fx-border-color: #dee2e6; -fx-border-radius: 8; -fx-padding: 10;" />
-                                       <TextField fx:id="userCityNameField" promptText="🏙️ Thành phố" style="-fx-background-radius: 8; -fx-border-color: #dee2e6; -fx-border-radius: 8; -fx-padding: 10;" />
-                                       <TextField fx:id="userRoleField" promptText="👔 Vai trò" style="-fx-background-radius: 8; -fx-border-color: #dee2e6; -fx-border-radius: 8; -fx-padding: 10;" />
-                                       
-                                       <HBox alignment="CENTER" spacing="15.0">
-                                          <children>
-                                             <Button fx:id="updateUserButton" mnemonicParsing="false" prefHeight="40.0" prefWidth="120.0" style="-fx-background-color: #f39c12; -fx-text-fill: white; -fx-background-radius: 8; -fx-font-size: 14px;" text="✏️ Cập Nhật" />
-                                             <Button fx:id="deleteUserButton" mnemonicParsing="false" prefHeight="40.0" prefWidth="120.0" style="-fx-background-color: #e74c3c; -fx-text-fill: white; -fx-background-radius: 8; -fx-font-size: 14px;" text="🗑️ Xóa" />
-                                          </children>
-                                       </HBox>
-                                    </children>
-                                 </VBox>
-                                 
-                                 <VBox prefHeight="680.0" prefWidth="720.0" style="-fx-background-color: white; -fx-background-radius: 15; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 8, 0, 0, 4);">
-                                    <padding>
-                                       <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-                                    </padding>
-                                    <children>
-                                       <Label text="Danh Sách Khách Hàng" textFill="#2c3e50">
-                                          <font>
-                                             <Font name="System Bold" size="18.0" />
-                                          </font>
-                                       </Label>
-                                       <TableView fx:id="userTableView" prefHeight="620.0" prefWidth="680.0" style="-fx-background-radius: 10;">
-                                          <columns>
-                                             <TableColumn fx:id="colUserId" prefWidth="60.0" text="ID" />
-                                             <TableColumn fx:id="colUserFirstName" prefWidth="100.0" text="Họ" />
-                                             <TableColumn fx:id="colUserLastName" prefWidth="100.0" text="Tên" />
-                                             <TableColumn fx:id="colUserEmail" prefWidth="150.0" text="Email" />
-                                             <TableColumn fx:id="colUserPhoneNumber" prefWidth="120.0" text="Số ĐT" />
-                                             <TableColumn fx:id="colUserCityName" prefWidth="100.0" text="Thành Phố" />
-                                             <TableColumn fx:id="colUserRole" prefWidth="90.0" text="Vai Trò" />
-                                          </columns>
-                                          <columnResizePolicy>
-                                             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-                                          </columnResizePolicy>
-                                       </TableView>
-                                    </children>
-                                 </VBox>
-                              </children>
-                           </HBox>
-                        </children>
-                     </AnchorPane>
-                     
-                     <AnchorPane fx:id="ticketManagementView" prefHeight="800.0" prefWidth="1120.0" visible="false">
-                        <children>
-                           <Label layoutX="30.0" layoutY="20.0" text="Quản Lý Vé Đã Đặt" textFill="#2c3e50">
-                              <font>
-                                 <Font name="System Bold" size="28.0" />
-                              </font>
-                           </Label>
-                           
-                           <VBox layoutX="30.0" layoutY="70.0" prefHeight="680.0" prefWidth="1060.0" spacing="20.0" style="-fx-background-color: white; -fx-background-radius: 15; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 8, 0, 0, 4);">
-                              <padding>
-                                 <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-                              </padding>
-                              <children>
-                                 <HBox alignment="CENTER_LEFT" spacing="20.0">
-                                    <children>
-                                       <TextField fx:id="ticketSearchField" prefHeight="35.0" prefWidth="300.0" promptText="🔍 Tìm kiếm..." style="-fx-background-radius: 8; -fx-border-color: #dee2e6; -fx-border-radius: 8; -fx-padding: 10;" />
-                                       <VBox spacing="5.0">
-                                          <children>
-                                             <RadioButton fx:id="searchByMovieIdRadioButton" mnemonicParsing="false" selected="true" text="Tìm theo ID Phim">
-                                                <toggleGroup>
-                                                   <ToggleGroup fx:id="searchGroup" />
-                                                </toggleGroup>
-                                             </RadioButton>
-                                             <RadioButton fx:id="searchByUserIdRadioButton" mnemonicParsing="false" text="Tìm theo ID Người dùng" toggleGroup="$searchGroup" />
-                                          </children>
-                                       </VBox>
-                                       <Button fx:id="ticketSearchButton" mnemonicParsing="false" style="-fx-background-color: #3498db; -fx-background-radius: 5;" text="Tìm kiếm" />
-                                    </children>
-                                 </HBox>
-                                 
-                                 <TableView fx:id="bookedTicketTableView" prefHeight="580.0" prefWidth="1020.0" style="-fx-background-radius: 10;">
-                                    <columns>
-                                       <TableColumn fx:id="colBookedTicketId" prefWidth="60.0" text="ID" />
-                                       <TableColumn fx:id="colBookedTicketNo" prefWidth="60.0" text="TicketNo" />
-                                       <TableColumn fx:id="colBookedTicketUserId" prefWidth="80.0" text="ID User" />
-                                       <TableColumn fx:id="colBookedTicketMovieId" prefWidth="80.0" text="ID Phim" />
-                                       <TableColumn fx:id="colBookedTicketSeatNumbers" prefWidth="100.0" text="Số Ghế" />
-                                       <TableColumn fx:id="colBookedTicketSeatClass" prefWidth="80.0" text="Loại Ghế" />
-                                       <TableColumn fx:id="colBookedTicketShowTime" prefWidth="100.0" text="Giờ Chiếu" />
-                                       <TableColumn fx:id="colBookedTicketPerPrice" prefWidth="80.0" text="Giá/Ghế" />
-                                       <TableColumn fx:id="colBookedTicketTotalPrice" prefWidth="100.0" text="Tổng Tiền" />
-                                       <TableColumn fx:id="colBookedTicketCurrentStatus" prefWidth="120.0" text="Trạng Thái" />
-                                       <TableColumn fx:id="colBookedTicketBookingDate" prefWidth="100.0" text="Ngày Đặt" />
-                                       <TableColumn fx:id="colBookedTicketBookingTime" prefWidth="100.0" text="Thời Gian Đặt" />
-                                    </columns>
-                                    <columnResizePolicy>
-                                       <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-                                    </columnResizePolicy>
-                                 </TableView>
-                                 <Button fx:id="refreshTicketsButton" mnemonicParsing="false" style="-fx-background-color: #28a745; -fx-text-fill: white; -fx-background-radius: 8;" text="Tải lại danh sách vé" />
-                                 <HBox alignment="CENTER" spacing="15.0">
-                                    <children>
-                                       <Button fx:id="deleteBookedTicketButton" mnemonicParsing="false" prefHeight="40.0" prefWidth="120.0" style="-fx-background-color: #e74c3c; -fx-text-fill: white; -fx-background-radius: 8; -fx-font-size: 14px;" text="🗑️ Xóa Vé" />
-                                    </children>
-                                 </HBox>
-                              </children>
-                           </VBox>
-                        </children>
-                     </AnchorPane>
+                     <children>
+                        
+                        <AnchorPane fx:id="dashboardView" layoutY="0.0" visible="true">
+                           <children>
+                              <Label layoutX="30.0" layoutY="20.0" text="Dashboard Tổng Quan" textFill="#2c3e50">
+                                 <font>
+                                    <Font name="System Bold" size="28.0" />
+                                 </font>
+                              </Label>
+                              
+                              <HBox alignment="CENTER" layoutX="30.0" layoutY="70.0" spacing="30.0">
+                                 <children>
+                                    <VBox alignment="CENTER" prefHeight="150.0" prefWidth="250.0" spacing="10.0" style="-fx-background-color: linear-gradient(to bottom, #27ae60, #2ecc71); -fx-background-radius: 15; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 8, 0, 0, 4);">
+                                       <padding>
+                                          <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                       </padding>
+                                       <children>
+                                          <Label text="💰" textFill="WHITE">
+                                             <font>
+                                                <Font size="36.0" />
+                                             </font>
+                                          </Label>
+                                          <Label text="Doanh Thu" textFill="WHITE">
+                                             <font>
+                                                <Font name="System Bold" size="16.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="revenueLabel" text="5,000,000 VNĐ" textFill="WHITE">
+                                             <font>
+                                                <Font name="System Bold" size="20.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </VBox>
+                                    
+                                    <VBox alignment="CENTER" prefHeight="150.0" prefWidth="250.0" spacing="10.0" style="-fx-background-color: linear-gradient(to bottom, #3498db, #2980b9); -fx-background-radius: 15; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 8, 0, 0, 4);">
+                                       <padding>
+                                          <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                       </padding>
+                                       <children>
+                                          <Label text="🎬" textFill="WHITE">
+                                             <font>
+                                                <Font size="36.0" />
+                                             </font>
+                                          </Label>
+                                          <Label text="Tổng Số Phim" textFill="WHITE">
+                                             <font>
+                                                <Font name="System Bold" size="16.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="totalMoviesLabel" text="50" textFill="WHITE">
+                                             <font>
+                                                <Font name="System Bold" size="24.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </VBox>
+                                    
+                                    <VBox alignment="CENTER" prefHeight="150.0" prefWidth="250.0" spacing="10.0" style="-fx-background-color: linear-gradient(to bottom, #e67e22, #d35400); -fx-background-radius: 15; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 8, 0, 0, 4);">
+                                       <padding>
+                                          <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                       </padding>
+                                       <children>
+                                          <Label text="🎫" textFill="WHITE">
+                                             <font>
+                                                <Font size="36.0" />
+                                             </font>
+                                          </Label>
+                                          <Label text="Vé Đã Bán" textFill="WHITE">
+                                             <font>
+                                                <Font name="System Bold" size="16.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="totalTicketsLabel" text="156" textFill="WHITE">
+                                             <font>
+                                                <Font name="System Bold" size="24.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </VBox>
+                                    
+                                    <VBox alignment="CENTER" prefHeight="150.0" prefWidth="250.0" spacing="10.0" style="-fx-background-color: linear-gradient(to bottom, #9b59b6, #8e44ad); -fx-background-radius: 15; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 8, 0, 0, 4);">
+                                       <padding>
+                                          <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                       </padding>
+                                       <children>
+                                          <Label text="👥" textFill="WHITE">
+                                             <font>
+                                                <Font size="36.0" />
+                                             </font>
+                                          </Label>
+                                          <Label text="Người Dùng" textFill="WHITE">
+                                             <font>
+                                                <Font name="System Bold" size="16.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="totalUsersLabel" text="1,248" textFill="WHITE">
+                                             <font>
+                                                <Font name="System Bold" size="24.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </HBox>
+                              
+                              <VBox alignment="CENTER" layoutX="30.0" layoutY="260.0" prefHeight="500.0" prefWidth="1060.0" spacing="20.0" style="-fx-background-color: white; -fx-background-radius: 15; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 8, 0, 0, 4);">
+                                 <padding>
+                                    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                 </padding>
+                                 <children>
+                                    <Label textFill="#2c3e50">
+                                       <font>
+                                          <Font name="System Bold" size="20.0" />
+                                       </font>
+                                    </Label>
+                                    <HBox alignment="CENTER" prefHeight="400.0" prefWidth="1000.0" spacing="10.0" style="-fx-background-color: #f8f9fa; -fx-background-radius: 10; -fx-border-color: #dee2e6; -fx-border-radius: 10;">
+                                       <children>
+                                          <Button fx:id="prevImageButton" mnemonicParsing="false" style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-background-radius: 5; -fx-font-size: 18px;" text="◀" />
+                                          <ImageView fx:id="dashboardImageView" fitHeight="380.0" fitWidth="800.0" pickOnBounds="true" preserveRatio="true" />
+                                          <Button fx:id="nextImageButton" mnemonicParsing="false" style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-background-radius: 5; -fx-font-size: 18px;" text="▶" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </AnchorPane>
+                        
+                        <AnchorPane fx:id="movieManagementView" layoutY="0.0" visible="false">
+                           <children>
+                              <AnchorPane layoutX="36.0" layoutY="73.0" prefHeight="701.0" prefWidth="319.0" style="-fx-background-radius: 15; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 8, 0, 0, 4); -fx-background-color: white;">
+                                 <children>
+                                    <AnchorPane layoutX="128.0" layoutY="14.0" prefHeight="164.0" prefWidth="167.0" style="-fx-background-color: white; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 8, 0, 0, 4);">
+                                       <children>
+                                          <ImageView fx:id="moviePosterImageView" fitHeight="164.0" fitWidth="169.0" layoutX="14.0" pickOnBounds="true" preserveRatio="true" />
+                                       </children>
+                                    </AnchorPane>
+                                    <Button fx:id="selectMovieImageButton" layoutX="22.0" layoutY="81.0" mnemonicParsing="false" style="-fx-background-color: #3498db; -fx-background-radius: 5;" text="📁Chọn ảnh:" />
+                                    <TextField fx:id="movieNameField" layoutX="14.0" layoutY="207.0" prefHeight="26.0" prefWidth="133.0" promptText="🎬 Tên phim" style="-fx-background-radius: 8; -fx-background-color: #dee2e6; -fx-border-radius: 8;" />
+                                    <TextField fx:id="movieGenreField" layoutX="14.0" layoutY="243.0" prefHeight="26.0" prefWidth="133.0" promptText="🎭 Thể loại" style="-fx-background-radius: 8; -fx-background-color: #dee2e6; -fx-border-radius: 8;" />
+                                    <TextField fx:id="movieDescriptionField" layoutX="14.0" layoutY="276.0" prefHeight="26.0" prefWidth="133.0" promptText=" Mô tả" style="-fx-background-radius: 8; -fx-background-color: #dee2e6; -fx-border-radius: 8;" />
+                                    <TextField fx:id="movieTotalSeatsField" layoutX="14.0" layoutY="311.0" prefHeight="26.0" prefWidth="133.0" promptText="💺 Tổng số ghế" style="-fx-background-radius: 8; -fx-background-color: #dee2e6; -fx-border-radius: 8;" />
+                                    <DatePicker fx:id="movieReleaseDatePicker" layoutX="14.0" layoutY="345.0" prefHeight="26.0" prefWidth="133.0" promptText="📅 Ngày chiếu" style="-fx-background-radius: 8; -fx-background-color: #dee2e6; -fx-border-radius: 8;" />
+                                    <TextField fx:id="movieShowTimeField" layoutX="14.0" layoutY="379.0" prefHeight="26.0" prefWidth="133.0" promptText="🕐 Giờ chiếu (HH:mm)" style="-fx-background-radius: 8; -fx-background-color: #dee2e6; -fx-border-radius: 8;" />
+                                    <TextField fx:id="movieTagsField" layoutX="171.0" layoutY="207.0" prefHeight="26.0" prefWidth="133.0" promptText="🏷️ Tags" style="-fx-background-radius: 8; -fx-background-color: #dee2e6; -fx-border-radius: 8;" />
+                                    <ComboBox fx:id="movieStatusComboBox" layoutX="172.0" layoutY="242.0" prefHeight="28.0" prefWidth="132.0" promptText="Trạng thái:" />
+                                    <TextField fx:id="movieActorsListField" layoutX="171.0" layoutY="276.0" prefHeight="26.0" prefWidth="133.0" promptText="👤ActorList" style="-fx-background-radius: 8; -fx-background-color: #dee2e6; -fx-border-radius: 8;" />
+                                    <TextField fx:id="moviePerPriceField" layoutX="171.0" layoutY="311.0" prefHeight="26.0" prefWidth="133.0" promptText="💵perPrices" style="-fx-background-radius: 8; -fx-background-color: #dee2e6; -fx-border-radius: 8;" />
+                                    <TextField fx:id="movieRatingsField" layoutX="171.0" layoutY="345.0" prefHeight="26.0" prefWidth="133.0" promptText="🟊Rating" style="-fx-background-radius: 8; -fx-background-color: #dee2e6; -fx-border-radius: 8;" />
+                                    <TextField fx:id="movieShowDatesAndTimingsField" layoutX="171.0" layoutY="379.0" prefHeight="26.0" prefWidth="133.0" promptText="🕒showDatesAndTimings" style="-fx-background-radius: 8; -fx-background-color: #dee2e6; -fx-border-radius: 8;" />
+                                    <Button fx:id="addMovieButton" layoutX="37.0" layoutY="462.0" mnemonicParsing="false" style="-fx-background-color: #3498db; -fx-background-radius: 5;" text="+ Thêm" />
+                                    <Button fx:id="editMovieButton" layoutX="129.0" layoutY="462.0" mnemonicParsing="false" style="-fx-background-color: #3498db; -fx-background-radius: 5;" text="✏️ Sửa" />
+                                    <Button fx:id="deleteMovieButton" layoutX="220.0" layoutY="462.0" mnemonicParsing="false" style="-fx-background-color: #3498db; -fx-background-radius: 5;" text="🗑️ Xóa" />
+                                    <TextField fx:id="movieBookedSeatsCountField" layoutX="14.0" layoutY="412.0" prefHeight="26.0" prefWidth="133.0" promptText=" Số ghế đã đặt" style="-fx-background-radius: 8; -fx-background-color: #dee2e6; -fx-border-radius: 8;" />
+                                 </children>
+                              </AnchorPane>
+                              <Label layoutX="30.0" layoutY="20.0" text="Quản Lý Phim" textFill="#2c3e50">
+                                 <font>
+                                    <Font name="System Bold" size="28.0" />
+                                 </font>
+                              </Label>
+                              
+                              <HBox layoutX="376.0" layoutY="70.0" prefHeight="706.0" prefWidth="699.0" spacing="20.0">
+                                 <children>
+                                    
+                                    <VBox prefHeight="680.0" prefWidth="786.0" style="-fx-background-color: white; -fx-background-radius: 15; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 8, 0, 0, 4);">
+                                       <padding>
+                                          <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                       </padding>
+                                       <children>
+                                          <Label text="Danh Sách Phim" textFill="#2c3e50">
+                                             <font>
+                                                <Font name="System Bold" size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <TableView fx:id="movieTableView" prefHeight="639.0" prefWidth="681.0" style="-fx-background-radius: 10;">
+                                             <columns>
+                                                <TableColumn fx:id="colMovieId" prefWidth="60.0" text="ID" />
+                                                <TableColumn fx:id="colMovieName" prefWidth="120.0" text="Tên Phim" />
+                                                <TableColumn fx:id="colMovieGenre" prefWidth="100.0" text="Thể Loại" />
+                                                <TableColumn fx:id="colMovieDescription" prefWidth="150.0" text="Mô Tả" />
+                                                <TableColumn fx:id="colMovieStatus" prefWidth="80.0" text="Trạng Thái" />
+                                                <TableColumn fx:id="colMovieTotalSeats" prefWidth="70.0" text="Tổng Số Ghế" />
+                                                <TableColumn fx:id="colMovieShowTime" prefWidth="100.0" text="Giờ Chiếu" />
+                                                <TableColumn fx:id="colMoviePerPrice" prefWidth="100.0" text="Giá/Vé" />
+                                                <TableColumn fx:id="colMovieRatings" prefWidth="80.0" text="Rating" />
+                                                <TableColumn fx:id="colMovieReleaseDate" prefWidth="100.0" text="Ngày CN" />
+                                                <TableColumn fx:id="colMovieBookedSeats" prefWidth="100.0" text="Ghế đã đặt" />
+                                             </columns>
+                                             <columnResizePolicy>
+                                                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                             </columnResizePolicy>
+                                          </TableView>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </AnchorPane>
+                        
+                        <AnchorPane fx:id="customerManagementView" layoutY="0.0" visible="false">
+                           <children>
+                              <Label layoutX="30.0" layoutY="20.0" text="Quản Lý Khách Hàng" textFill="#2c3e50">
+                                 <font>
+                                    <Font name="System Bold" size="28.0" />
+                                 </font>
+                              </Label>
+                              
+                              <HBox layoutX="30.0" layoutY="70.0" spacing="20.0">
+                                 <children>
+                                    <VBox prefHeight="680.0" prefWidth="350.0" spacing="15.0" style="-fx-background-color: white; -fx-background-radius: 15; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 8, 0, 0, 4);">
+                                       <padding>
+                                          <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                       </padding>
+                                       <children>
+                                          <Label text="Thông Tin Khách Hàng" textFill="#2c3e50">
+                                             <font>
+                                                <Font name="System Bold" size="18.0" />
+                                             </font>
+                                          </Label>
+                                          
+                                          <TextField fx:id="userFirstNameField" promptText="👤 Họ" style="-fx-background-radius: 8; -fx-border-color: #dee2e6; -fx-border-radius: 8; -fx-padding: 10;" />
+                                          <TextField fx:id="userLastNameField" promptText="👤 Tên" style="-fx-background-radius: 8; -fx-border-color: #dee2e6; -fx-border-radius: 8; -fx-padding: 10;" />
+                                          <TextField fx:id="userEmailField" promptText="📧 Email" style="-fx-background-radius: 8; -fx-border-color: #dee2e6; -fx-border-radius: 8; -fx-padding: 10;" />
+                                          <TextField fx:id="userPhoneNumberField" promptText="📱 Số điện thoại" style="-fx-background-radius: 8; -fx-border-color: #dee2e6; -fx-border-radius: 8; -fx-padding: 10;" />
+                                          <TextField fx:id="userCityNameField" promptText="🏙️ Thành phố" style="-fx-background-radius: 8; -fx-border-color: #dee2e6; -fx-border-radius: 8; -fx-padding: 10;" />
+                                          <TextField fx:id="userRoleField" promptText="👔 Vai trò" style="-fx-background-radius: 8; -fx-border-color: #dee2e6; -fx-border-radius: 8; -fx-padding: 10;" />
+                                          
+                                          <HBox alignment="CENTER" spacing="15.0">
+                                             <children>
+                                                <Button fx:id="updateUserButton" mnemonicParsing="false" prefHeight="40.0" prefWidth="120.0" style="-fx-background-color: #f39c12; -fx-text-fill: white; -fx-background-radius: 8; -fx-font-size: 14px;" text="✏️ Cập Nhật" />
+                                                <Button fx:id="deleteUserButton" mnemonicParsing="false" prefHeight="40.0" prefWidth="120.0" style="-fx-background-color: #e74c3c; -fx-text-fill: white; -fx-background-radius: 8; -fx-font-size: 14px;" text="📊🎬👥🎫🚪💰🎬🎫👥📁🎬🎭📝💺📅🕐🏷👤💵🟊🕒🗑💺👤👤📧📱🏙👔🗑️ Xóa" />
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </VBox>
+                                    
+                                    <VBox prefHeight="680.0" prefWidth="720.0" style="-fx-background-color: white; -fx-background-radius: 15; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 8, 0, 0, 4);">
+                                       <padding>
+                                          <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                       </padding>
+                                       <children>
+                                          <Label text="Danh Sách Khách Hàng" textFill="#2c3e50">
+                                             <font>
+                                                <Font name="System Bold" size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <TableView fx:id="userTableView" prefHeight="620.0" prefWidth="680.0" style="-fx-background-radius: 10;">
+                                             <columns>
+                                                <TableColumn fx:id="colUserId" prefWidth="60.0" text="ID" />
+                                                <TableColumn fx:id="colUserFirstName" prefWidth="100.0" text="Họ" />
+                                                <TableColumn fx:id="colUserLastName" prefWidth="100.0" text="Tên" />
+                                                <TableColumn fx:id="colUserEmail" prefWidth="150.0" text="Email" />
+                                                <TableColumn fx:id="colUserPhoneNumber" prefWidth="120.0" text="Số ĐT" />
+                                                <TableColumn fx:id="colUserCityName" prefWidth="100.0" text="Thành Phố" />
+                                                <TableColumn fx:id="colUserRole" prefWidth="90.0" text="Vai Trò" />
+                                             </columns>
+                                             <columnResizePolicy>
+                                                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                             </columnResizePolicy>
+                                          </TableView>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </AnchorPane>
+                        
+                        <AnchorPane fx:id="ticketManagementView" visible="false">
+                           <children>
+                              <Label layoutX="30.0" layoutY="20.0" text="Quản Lý Vé Đã Đặt" textFill="#2c3e50">
+                                 <font>
+                                    <Font name="System Bold" size="28.0" />
+                                 </font>
+                              </Label>
+                              
+                              <VBox layoutX="30.0" layoutY="70.0" prefHeight="680.0" prefWidth="1060.0" spacing="20.0" style="-fx-background-color: white; -fx-background-radius: 15; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 8, 0, 0, 4);">
+                                 <padding>
+                                    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                 </padding>
+                                 <children>
+                                    <HBox alignment="CENTER_LEFT" spacing="20.0">
+                                       <children>
+                                          <TextField fx:id="ticketSearchField" prefHeight="35.0" prefWidth="300.0" promptText="🔍 Tìm kiếm..." style="-fx-background-radius: 8; -fx-border-color: #dee2e6; -fx-border-radius: 8; -fx-padding: 10;" />
+                                          <VBox spacing="5.0">
+                                             <children>
+                                                <RadioButton fx:id="searchByMovieIdRadioButton" mnemonicParsing="false" selected="true" text="Tìm theo ID Phim">
+                                                   <toggleGroup>
+                                                      <ToggleGroup fx:id="searchGroup" />
+                                                   </toggleGroup>
+                                                </RadioButton>
+                                                <RadioButton fx:id="searchByUserIdRadioButton" mnemonicParsing="false" text="Tìm theo ID Người dùng" toggleGroup="$searchGroup" />
+                                             </children>
+                                          </VBox>
+                                          <Button fx:id="ticketSearchButton" mnemonicParsing="false" style="-fx-background-color: #3498db; -fx-background-radius: 5;" text="Tìm kiếm" />
+                                       </children>
+                                    </HBox>
+                                    
+                                    <TableView fx:id="bookedTicketTableView" prefHeight="580.0" prefWidth="1020.0" style="-fx-background-radius: 10;">
+                                       <columns>
+                                          <TableColumn fx:id="colBookedTicketId" prefWidth="60.0" text="ID" />
+                                          <TableColumn fx:id="colBookedTicketNo" prefWidth="60.0" text="TicketNo" />
+                                          <TableColumn fx:id="colBookedTicketUserId" prefWidth="80.0" text="ID User" />
+                                          <TableColumn fx:id="colBookedTicketMovieId" prefWidth="80.0" text="ID Phim" />
+                                          <TableColumn fx:id="colBookedTicketSeatNumbers" prefWidth="100.0" text="Số Ghế" />
+                                          <TableColumn fx:id="colBookedTicketSeatClass" prefWidth="80.0" text="Loại Ghế" />
+                                          <TableColumn fx:id="colBookedTicketShowTime" prefWidth="100.0" text="Giờ Chiếu" />
+                                          <TableColumn fx:id="colBookedTicketPerPrice" prefWidth="80.0" text="Giá/Ghế" />
+                                          <TableColumn fx:id="colBookedTicketTotalPrice" prefWidth="100.0" text="Tổng Tiền" />
+                                          <TableColumn fx:id="colBookedTicketCurrentStatus" prefWidth="120.0" text="Trạng Thái" />
+                                          <TableColumn fx:id="colBookedTicketBookingDate" prefWidth="100.0" text="Ngày Đặt" />
+                                          <TableColumn fx:id="colBookedTicketBookingTime" prefWidth="100.0" text="Thời Gian Đặt" />
+                                       </columns>
+                                       <columnResizePolicy>
+                                          <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                       </columnResizePolicy>
+                                    </TableView>
+                                    <Button fx:id="refreshTicketsButton" mnemonicParsing="false" style="-fx-background-color: #28a745; -fx-text-fill: white; -fx-background-radius: 8;" text="Tải lại danh sách vé" />
+                                    <HBox alignment="CENTER" spacing="15.0">
+                                       <children>
+                                          <Button fx:id="deleteBookedTicketButton" mnemonicParsing="false" prefHeight="40.0" prefWidth="120.0" style="-fx-background-color: #e74c3c; -fx-text-fill: white; -fx-background-radius: 8; -fx-font-size: 14px;" text="📊🎬👥🎫🚪💰🎬🎫👥📁🎬🎭📝💺📅🕐🏷👤💵🟊🕒🗑💺👤👤📧📱🏙👔🗑🔍🗑️ Xóa Vé" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </AnchorPane>
+                     </children>
                   </AnchorPane>
                </content>
             </ScrollPane>

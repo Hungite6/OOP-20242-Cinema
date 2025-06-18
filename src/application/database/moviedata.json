@@ -5,10 +5,11 @@
   "totalPrice": 0,
   "name": "",
   "timing": "",
-  "selected": "1A, 1B",
+  "selected": "1A, 1B, 1C",
   "bookedSeats": [],
   "selectedSeats": [
     "1A",
-    "1B"
+    "1B",
+    "1C"
   ]
 }

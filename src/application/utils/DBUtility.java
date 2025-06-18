@@ -17,7 +17,7 @@ public class DBUtility {
 	private static final String DB_URL = "jdbc:sqlite:src/application/database/movie_ticket_booking.db";
 
 	// validate login, encrypt password and store data in userdata.json
-	public static Boolean validateLogin(String email, String password) {
+	public static Object[] validateLogin(String email, String password) {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -46,21 +46,20 @@ public class DBUtility {
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
-				return true;
+				int isSuperUser = rs.getInt("isSuperUser"); // Lấy giá trị NUMERIC
+				boolean isAdmin = (isSuperUser == 1);
+				return new Object[] { true, isSuperUser }; // Return login success and admin status
 			} else {
-				return false;
+				return new Object[] { false, false }; // Login failed
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
-			return false; // Return false in case of any exception
+			return new Object[] { false, false }; // Return false in case of any exception
 		} finally {
 			try {
-				if (rs != null)
-					rs.close();
-				if (pstmt != null)
-					pstmt.close();
-				if (conn != null)
-					conn.close();
+				if (rs != null) rs.close();
+				if (pstmt != null) pstmt.close();
+				if (conn != null) conn.close();
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}

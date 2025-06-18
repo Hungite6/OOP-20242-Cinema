@@ -27,6 +27,7 @@ public class JSONUtility {
 		String lastName = rs.getString("lastName");
 		String cityName = rs.getString("cityName");
 		String userEmail = rs.getString("emailAddress");
+		boolean isSuperUser = rs.getInt("isSuperUser") == 1;
 
 		// Check for null or empty values and replace with empty string
 		if (phoneNumber == null || phoneNumber.isEmpty()) {
@@ -66,7 +67,16 @@ public class JSONUtility {
 	static class User {
 		public int userId; // Make the field public
 		String firstName, lastName, email, phoneNumber, cityName;
+		public boolean isSuperUser;
 
+		// Getters and setters
+		public boolean isSuperUser() {
+			return isSuperUser;
+		}
+
+		public void setSuperUser(boolean superUser) {
+			isSuperUser = superUser;
+		}
 		// Constructor
 		public User(int id, String fname, String lname, String email, String phoneNumber, String cityName) {
 			this.userId = id;
