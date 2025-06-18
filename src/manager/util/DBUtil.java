@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DBUtil {
-    private static final String JDBC_URL = "jdbc:sqlite:movie_ticket_booking.db";
+    private static final String JDBC_URL = "jdbc:sqlite:src/application/database/movie_ticket_booking.db";
 
     private static final DateTimeFormatter[] DATE_TIME_READ_FORMATTERS = {
         DateTimeFormatter.ofPattern("M/d/yyyy HH:mm:ss"),

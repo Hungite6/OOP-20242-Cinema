@@ -12,5 +12,8 @@ module MovieTicketBookingManagementSystem {
 	opens application to javafx.graphics, javafx.fxml;
 	opens application.controllers to javafx.fxml;
 	opens application.utils to com.google.gson;
+	opens manager.model to javafx.base;
+	opens manager to javafx.fxml;
+	exports manager;
 }
 
