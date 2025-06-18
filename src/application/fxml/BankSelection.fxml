@@ -23,7 +23,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<Pane fx:id="parent" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="720.0" minWidth="1200.0" prefHeight="720.0" prefWidth="1200.0" styleClass="UpiScreenContainer" stylesheets="@../css/UPIScreen.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controllers.ChooseBank">
+<Pane fx:id="parent" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="720.0" minWidth="1200.0" prefHeight="720.0" prefWidth="1200.0" styleClass="UpiScreenContainer" stylesheets="@../css/UPIScreen.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controllers.BankSelection">
    <children>
       <Pane fx:id="child" layoutX="254.0" layoutY="48.0" prefHeight="625.0" prefWidth="692.0" styleClass="middleContainer">
          <children>
@@ -50,34 +50,34 @@
                <children>
                   <ImageView fx:id="VTB" fitHeight="150.0" fitWidth="200.0" onMouseClicked="#handleVTBClick" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="2">
                      <image>
-                        <Image url="@../resources/vtb.png" />
+                        <Image url="@../resources/bank_icons/vtb.png" />
                      </image>
                   </ImageView>
                </children>
             </GridPane>
-            <ImageView fx:id="VCB" fitHeight="150.0" fitWidth="200.0" layoutX="388.0" layoutY="132.0" onMouseClicked="#handleVCBClick" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="VCB" fitHeight="150.0" fitWidth="200.0" layoutX="388.0" layoutY="140.0" onMouseClicked="#handleVCBClick" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../resources/vcb.jpg" />
+                  <Image url="@../resources/bank_icons/vcb.png" />
                </image>
             </ImageView>
             <ImageView fx:id="AGRB" fitHeight="150.0" fitWidth="200.0" layoutX="393.0" layoutY="263.0" onMouseClicked="#handleAGRBClick" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../bin/application/resources/AGRIBANK.png" />
+                  <Image url="@../resources/bank_icons/agb.png" />
                </image>
             </ImageView>
             <ImageView fx:id="TCB" fitHeight="150.0" fitWidth="249.0" layoutX="57.0" layoutY="276.0" onMouseClicked="#handleTCBClick" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../resources/tcb.png" />
+                  <Image url="@../resources/bank_icons/tcb.png" />
                </image>
             </ImageView>
             <ImageView fx:id="BIDV" fitHeight="150.0" fitWidth="200.0" layoutX="81.0" layoutY="470.0" onMouseClicked="#handleBIDVClick" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../bin/application/resources/bidv.jpg" />
+                  <Image url="@../resources/bank_icons/bidv.png" />
                </image>
             </ImageView>
             <ImageView fx:id="MB" fitHeight="150.0" fitWidth="200.0" layoutX="388.0" layoutY="470.0" onMouseClicked="#handleMBClick" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../bin/application/resources/Mb.png" />
+                  <Image url="@../resources/bank_icons/Mb.png" />
                </image>
             </ImageView>
          </children>

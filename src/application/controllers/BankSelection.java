@@ -1,6 +1,5 @@
 package application.controllers;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -12,7 +11,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 @SuppressWarnings("unused")
-public class ChooseBank {
+public class BankSelection {
 
     private void switchScene(MouseEvent event, String fxmlPath) {
         try {
@@ -28,8 +27,10 @@ public class ChooseBank {
 
     @FXML
     public void handleVTBClick(MouseEvent event) throws IOException {
-    	FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/fxml/Bank_VTB.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/fxml/BankPayment.fxml"));
         Parent root = loader.load();
+        BankPaymentController controller = loader.getController();
+        controller.setBank("vtb"); // Truyền tên ngân hàng
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
         stage.setScene(scene);
@@ -38,8 +39,10 @@ public class ChooseBank {
 
     @FXML
     public void handleVCBClick(MouseEvent event) throws IOException {
-    	FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/fxml/Bank_VCB.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/fxml/BankPayment.fxml"));
         Parent root = loader.load();
+        BankPaymentController controller = loader.getController();
+        controller.setBank("vcb"); // Truyền tên ngân hàng
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
         stage.setScene(scene);
@@ -48,8 +51,10 @@ public class ChooseBank {
 
     @FXML
     public void handleAGRBClick(MouseEvent event) throws IOException {
-    	FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/fxml/Bank_AGRB.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/fxml/BankPayment.fxml"));
         Parent root = loader.load();
+        BankPaymentController controller = loader.getController();
+        controller.setBank("agb"); // Truyền tên ngân hàng
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
         stage.setScene(scene);
@@ -58,8 +63,10 @@ public class ChooseBank {
 
     @FXML
     public void handleTCBClick(MouseEvent event) throws IOException {
-    	FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/fxml/Bank_TCB.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/fxml/BankPayment.fxml"));
         Parent root = loader.load();
+        BankPaymentController controller = loader.getController();
+        controller.setBank("tcb"); // Truyền tên ngân hàng
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
         stage.setScene(scene);
@@ -68,8 +75,10 @@ public class ChooseBank {
 
     @FXML
     public void handleBIDVClick(MouseEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/fxml/Bank_B.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/fxml/BankPayment.fxml"));
         Parent root = loader.load();
+        BankPaymentController controller = loader.getController();
+        controller.setBank("bidv"); // Truyền tên ngân hàng
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
         stage.setScene(scene);
@@ -78,8 +87,10 @@ public class ChooseBank {
 
     @FXML
     public void handleMBClick(MouseEvent event) throws IOException {
-    	FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/fxml/Bank_MB.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/fxml/BankPayment.fxml"));
         Parent root = loader.load();
+        BankPaymentController controller = loader.getController();
+        controller.setBank("mb"); // Truyền tên ngân hàng
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
         stage.setScene(scene);
