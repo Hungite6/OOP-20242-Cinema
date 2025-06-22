@@ -218,7 +218,8 @@ public class TicketDownloadController {
 	public void GeneratePDF(ActionEvent e) {
 		try {
 
-			Parent root = FXMLLoader.load(getClass().getResource("/application/fxml/TicketDownload.fxml"));
+			Node source = (Node) e.getSource();
+			Parent root = source.getScene().getRoot();
 
 			PrinterJob job = PrinterJob.createPrinterJob();
 			if (job != null) {

@@ -73,7 +73,7 @@
                      <children>
                         <Pane prefHeight="339.0" prefWidth="641.0">
                            <children>
-                              <Text fx:id="movieGener" layoutX="102.0" layoutY="81.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="384.0">
+                              <Text fx:id="movieGener" layoutX="86.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="448.13671875">
                                  <font>
                                     <Font name="System Bold" size="18.0" />
                                  </font></Text>
@@ -89,7 +89,7 @@
                                  <font>
                                     <Font name="System Bold" size="18.0" />
                                  </font></Text>
-                              <Text fx:id="movieActors" layoutX="102.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="411.13671875">
+                              <Text fx:id="movieActors" layoutX="81.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="448.13671875">
                                  <font>
                                     <Font name="System Bold" size="18.0" />
                                  </font></Text>
@@ -152,17 +152,17 @@
                                     <Font name="System Bold" size="14.0" />
                                  </font>
                               </Text>
-                              <Text fx:id="baseClassTicket" layoutX="128.0" layoutY="164.0" strokeType="OUTSIDE" strokeWidth="0.0" text="100,000 VND/ per Person " wrappingWidth="232.13671875">
+                              <Text fx:id="baseClassTicket" layoutX="128.0" layoutY="164.0" strokeType="OUTSIDE" strokeWidth="0.0" text="+0 VND/ per Person " wrappingWidth="232.13671875">
                                  <font>
                                     <Font name="System Bold" size="18.0" />
                                  </font>
                               </Text>
-                              <Text fx:id="secondClassTicket" layoutX="152.0" layoutY="124.0" strokeType="OUTSIDE" strokeWidth="0.0" text="150,000 VND / per person" wrappingWidth="223.0">
+                              <Text fx:id="secondClassTicket" layoutX="152.0" layoutY="124.0" strokeType="OUTSIDE" strokeWidth="0.0" text="+50,000 VND / per person" wrappingWidth="223.0">
                                  <font>
                                     <Font name="System Bold" size="18.0" />
                                  </font>
                               </Text>
-                              <Text fx:id="firstClassTicket" layoutX="133.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="200,000 VND / per person" wrappingWidth="223.0">
+                              <Text fx:id="firstClassTicket" layoutX="133.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="+70,000 VND / per person" wrappingWidth="223.0">
                                  <font>
                                     <Font name="System Bold" size="18.0" />
                                  </font>

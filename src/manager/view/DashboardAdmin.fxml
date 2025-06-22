@@ -26,11 +26,11 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="manager.DashboardAdminController">
+<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="manager.DashboardAdminController">
    <children>
       <BorderPane>
          <left>
-            <VBox prefHeight="800.0" prefWidth="280.0" style="-fx-background-color: linear-gradient(to bottom, #2c3e50, #34495e); -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 10, 0, 2, 2);" BorderPane.alignment="CENTER">
+            <VBox style="-fx-background-color: linear-gradient(to bottom, #2c3e50, #34495e); -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 10, 0, 2, 2);" BorderPane.alignment="CENTER">
                <children>
                   <VBox alignment="CENTER" prefHeight="200.0" spacing="15.0" style="-fx-background-color: rgba(52, 73, 94, 0.3); -fx-background-radius: 10;">
                      <VBox.margin>
@@ -399,7 +399,7 @@
                                     <Button fx:id="refreshTicketsButton" mnemonicParsing="false" style="-fx-background-color: #28a745; -fx-text-fill: white; -fx-background-radius: 8;" text="Tải lại danh sách vé" />
                                     <HBox alignment="CENTER" spacing="15.0">
                                        <children>
-                                          <Button fx:id="deleteBookedTicketButton" mnemonicParsing="false" prefHeight="40.0" prefWidth="120.0" style="-fx-background-color: #e74c3c; -fx-text-fill: white; -fx-background-radius: 8; -fx-font-size: 14px;" text="📊🎬👥🎫🚪💰🎬🎫👥📁🎬🎭📝💺📅🕐🏷👤💵🟊🕒🗑💺👤👤📧📱🏙👔🗑🔍🗑️ Xóa Vé" />
+                                          <Button fx:id="deleteBookedTicketButton" mnemonicParsing="false" prefHeight="40.0" prefWidth="120.0" style="-fx-background-color: #e74c3c; -fx-text-fill: white; -fx-background-radius: 8; -fx-font-size: 14px;" text="🗑️ Xóa Vé" />
                                        </children>
                                     </HBox>
                                  </children>

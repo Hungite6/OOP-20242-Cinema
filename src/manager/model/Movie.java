@@ -11,7 +11,7 @@ public class Movie {
     private String tags;
     private String movieStatus;
     private String actorsList;
-    private String perPrices; // Đã thay đổi từ int sang String
+    private String perPrices;
     private int bookedSeatsCount;
     private double ratings;
     private LocalDateTime releaseDate;
