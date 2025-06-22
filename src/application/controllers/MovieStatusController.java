@@ -12,6 +12,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import application.utils.JSONUtility;
 import org.sqlite.SQLiteDataSource;
 
 import application.utils.DBUtility;
@@ -71,6 +72,18 @@ public class MovieStatusController {
 	}
 
 	public void handleBookTicketBtnClicked(ActionEvent event) throws IOException {
+		String movieName = movieTitle.getText();
+		List<Movie> searchResults = searchMoviesInDatabase("SELECT * FROM movies WHERE name = ?", movieName);
+
+		Movie selectedMovie = searchResults.get(0);
+		int movieId = selectedMovie.getId();
+		int basePrice = selectedMovie.getBasePrice(); // Giả sử Movie có phương thức getBasePrice()
+		String timing = movieNextShow.getText().split(" ")[0] + " 10:00"; // Lấy ngày và thêm giờ mặc định
+		String booked = ""; // Ban đầu không có ghế nào được đặt
+
+		// Cập nhật moviedata.json
+		JSONUtility util = new JSONUtility();
+		util.createMovieJson(movieId, movieName, timing, booked, basePrice);
 		root = FXMLLoader.load(getClass().getResource("/application/fxml/SeatsSelection.fxml"));
 		stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 		double currentWidth = stage.getWidth();

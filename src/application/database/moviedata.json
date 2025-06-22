@@ -1,15 +1,16 @@
 {
-  "id": 0,
-  "price": 1200,
-  "basePrice": 0,
-  "totalPrice": 0,
-  "name": "",
-  "timing": "",
-  "selected": "1A, 1B, 1C",
-  "bookedSeats": [],
+  "id": 15,
+  "price": 0,
+  "basePrice": 240000,
+  "totalPrice": 620000,
+  "name": "Trò chơi của một góa phụ",
+  "timing": "20-03-2025 10:00",
+  "selected": "1A, 1B",
+  "bookedSeats": [
+    ""
+  ],
   "selectedSeats": [
     "1A",
-    "1B",
-    "1C"
+    "1B"
   ]
 }

@@ -51,7 +51,7 @@ public class DBUtil {
     }
 
     public static double getTotalRevenue() throws SQLException {
-        String sql = "SELECT SUM(totalPrice) FROM booked_ticket WHERE currentStatus = 'Completed'";
+        String sql = "SELECT SUM(totalPrice) FROM booked_ticket WHERE currentStatus = 'Booked'";
         try (Connection conn = getConnection();
              Statement stmt = conn.createStatement();
              ResultSet rs = stmt.executeQuery(sql)) {
@@ -114,7 +114,7 @@ public class DBUtil {
                         rs.getString("tags"),
                         rs.getString("movieStatus"),
                         rs.getString("actorsList"),
-                        rs.getString("perPrices"), // Đã đọc là String
+                        rs.getString("basePrice"), // Đã đọc là String
                         rs.getInt("bookedSeatsCount"),
                         rs.getDouble("ratings"),
                         parsedReleaseDate,

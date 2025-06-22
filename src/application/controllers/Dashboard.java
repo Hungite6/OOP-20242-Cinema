@@ -69,12 +69,7 @@ public class Dashboard implements Initializable {
 		Button clickedButton = (Button) event.getSource();
 
 		// Perform different actions based on the clicked button
-		if (clickedButton == dashboardBtn) {
-			// Handle dashboard button click
-			Parent fxml = FXMLLoader.load(getClass().getResource("/application/fxml/Profile.fxml"));
-			dashboardContentHboxContainer.getChildren().removeAll();
-			dashboardContentHboxContainer.getChildren().setAll(fxml);
-		} else if (clickedButton == moviesBtn) {
+		if (clickedButton == moviesBtn) {
 			// Handle movies button click
 			Parent fxml = FXMLLoader.load(getClass().getResource("/application/fxml/ShowAllMovies.fxml"));
 			dashboardContentHboxContainer.getChildren().removeAll();

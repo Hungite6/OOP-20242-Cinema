@@ -1,9 +1,6 @@
 package application.utils;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.text.SimpleDateFormat;
 import java.util.List;
 
@@ -201,6 +198,8 @@ public class DBUtility {
 	public static void getMoviesData(ResultSet rs, List<Movie> movies) {
 		try {
 			while (rs.next()) {
+				int getId = rs.getInt("id");
+				int basePrice = rs.getInt("basePrice");
 				String getMovieName = rs.getString("name");
 				String getMovieDescription = rs.getString("description");
 				String getMovieRating = rs.getString("ratings");
@@ -215,6 +214,8 @@ public class DBUtility {
 				String getMovieRealeseDate = sdfOutput.format(sdfInput.parse(getMovieRealeseDateTime.toString()));
 
 				Movie movie = new Movie();
+				movie.setId(getId);
+				movie.setBasePrice(basePrice);
 				movie.setMovieName(getMovieName);
 				movie.setMovieDescription(getMovieDescription);
 				movie.setMovieRating(getMovieRating);
@@ -368,11 +369,13 @@ public class DBUtility {
 		return ticketCounts;
 	}
 
-	public static void updateBookingData () {
+	public static void updateBookingData() {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
+		PreparedStatement pstmtMovie = null; // Để truy vấn bảng movies
+		ResultSet rsMovie = null;
 		try {
-			JSONUtility json= new JSONUtility();
+			JSONUtility json = new JSONUtility();
 			User user = JSONUtility.getUserData();
 			MovieData moviedata = json.getMovieJson();
 
@@ -381,7 +384,31 @@ public class DBUtility {
 			SQLiteDataSource ds = new SQLiteDataSource();
 			ds.setUrl(DB_URL);
 			conn = ds.getConnection();
-			String query = "INSERT INTO booked_ticket (userId, movieId, seatNumbers, seatClass, numberOfSeats, showTime, perPrice, totalPrice, currentStatus) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+
+			// Lấy thời gian hiện tại
+			Timestamp currentTimestamp = new Timestamp(System.currentTimeMillis());
+			SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+			SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm:ss");
+			String currentDate = dateFormat.format(currentTimestamp);
+			String currentTime = timeFormat.format(currentTimestamp);
+
+			// Tạo số ticketNo ngẫu nhiên (có thể điều chỉnh logic)
+			String ticketNo = "TKT" + (int)(Math.random() * 1000);
+
+			// Truy vấn bảng movies để lấy createdAt và updatedAt
+			String movieQuery = "SELECT createdAt, updatedAt FROM movies WHERE id = ?";
+			pstmtMovie = conn.prepareStatement(movieQuery);
+			pstmtMovie.setInt(1, moviedata.id);
+			rsMovie = pstmtMovie.executeQuery();
+
+			String createdAt = null;
+			String updatedAt = null;
+			if (rsMovie.next()) {
+				createdAt = rsMovie.getString("createdAt");
+				updatedAt = rsMovie.getString("updatedAt");
+			}
+
+			String query = "INSERT INTO booked_ticket (userId, movieId, seatNumbers, seatClass, numberOfSeats, showTime, perPrice, totalPrice, currentStatus, createdAt, updatedAt, ticketNo, bookingDate, bookingTime) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 			pstmt = conn.prepareStatement(query);
 			pstmt.setInt(1, user.userId);
 			pstmt.setInt(2, moviedata.id);
@@ -392,11 +419,23 @@ public class DBUtility {
 			pstmt.setInt(7, moviedata.basePrice);
 			pstmt.setInt(8, moviedata.totalPrice);
 			pstmt.setString(9, "Booked");
+			pstmt.setString(10, createdAt); // createdAt
+			pstmt.setString(11, updatedAt); // updatedAt
+			pstmt.setString(12, ticketNo); // ticketNo
+			pstmt.setString(13, currentDate); // bookingDate
+			pstmt.setString(14, currentTime); // bookingTime
 
 			int rowsInserted = pstmt.executeUpdate();
 			// Check if the insert was successful
 		} catch (Exception e) {
 			System.out.println(e.toString());
+		} finally {
+			try {
+				if (pstmt != null) pstmt.close();
+				if (conn != null) conn.close();
+			} catch (Exception e) {
+				System.out.println(e.toString());
+			}
 		}
 	}
 

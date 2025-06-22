@@ -35,6 +35,9 @@ public class TicketDownloadController {
 	private Text status1, status2, ticket_no1, ticket_no2;
 
 	@FXML
+	private Text movie1, movie2;
+
+	@FXML
 	private Button ticket_download_btn, home_btn, btn;
 
 	private static final String DB_URL = "jdbc:sqlite:src/application/database/movie_ticket_booking.db";
@@ -49,45 +52,61 @@ public class TicketDownloadController {
 		ResultSet rs = null;
 
 		try {
-			String sql = "Select * from booked_ticket where bookingDate = '2024-03-24' ";
+			// Sử dụng bookingDate và bookingTime để lấy vé mới nhất
+			String sql = "SELECT * FROM booked_ticket ORDER BY bookingDate DESC, bookingTime DESC LIMIT 1";
 			ps = con.prepareStatement(sql);
 			rs = ps.executeQuery();
 
-//			get only Specific date
-//			String Name = rs.getString("Name");
-//			String Id = rs.getString("Id");
-			String B_Date = rs.getString("bookingDate");
-			String B_Time = rs.getString("bookingTime");
-			String SeatNo = rs.getString("seatNumbers");
-			String TicketNo = rs.getString("ticketNo");
+			if (rs.next()) {
+				String B_Date = rs.getString("bookingDate");
+				String B_Time = rs.getString("bookingTime");
+				String SeatNo = rs.getString("seatNumbers");
+				String TicketNo = rs.getString("ticketNo");
+				int movieId = rs.getInt("movieId");
+				String movieName = getMovieName(con, movieId);
 
-//			System.out.println("Id : " + Id);
-//			System.out.println("Name : " + Name);
-			System.out.println("Date : " + B_Date);
-			System.out.println("Time : " + B_Time);
-			System.out.println("Seat_No : " + SeatNo);
-			System.out.println("Ticket_No : " + TicketNo);
+				System.out.println("Date : " + B_Date);
+				System.out.println("Time : " + B_Time);
+				System.out.println("Seat_No : " + SeatNo);
+				System.out.println("Ticket_No : " + TicketNo);
 
-			String BookingDate = changeDateFormat(B_Date);
-			String BookingTime = convert_12Hours_Format(B_Time);
-			String BookingStatus = checkTicketStatus(B_Date, B_Time);
-//			String BookingTime = convert_24Hours_Format(B_Time);
+				String BookingDate = changeDateFormat(B_Date);
+				String BookingTime = convert_12Hours_Format(B_Time);
+				String BookingStatus = checkTicketStatus(B_Date, B_Time);
 
-			setTicketDetils(BookingDate, BookingTime, BookingStatus, TicketNo, SeatNo);
-
+				setTicketDetils(BookingDate, BookingTime, BookingStatus, TicketNo, SeatNo, movieName);
+			} else {
+				System.out.println("No recent booking found.");
+			}
 		} catch (SQLException e) {
 			System.out.println(e.toString());
 		} finally {
 			try {
-				ps.close();
-				rs.close();
-				con.close();
-
+				if (ps != null) ps.close();
+				if (rs != null) rs.close();
+				if (con != null) con.close();
 			} catch (Exception e) {
 				System.out.println(e.toString());
 			}
 		}
+	}
 
+	private String getMovieName(Connection con, int movieId) throws SQLException {
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		try {
+			String sql = "SELECT name FROM movies WHERE id = ?";
+			ps = con.prepareStatement(sql);
+			ps.setInt(1, movieId);
+			rs = ps.executeQuery();
+			if (rs.next()) {
+				return rs.getString("name");
+			}
+			return "Unknown Movie"; // Giá trị mặc định nếu không tìm thấy
+		} finally {
+			if (ps != null) ps.close();
+			if (rs != null) rs.close();
+		}
 	}
 
 	// convert 24hours to 12hours clock format
@@ -156,7 +175,7 @@ public class TicketDownloadController {
 	}
 
 	// set Ticket Details
-	public String setTicketDetils(String B_Date, String B_Time, String B_Status, String B_TicketNo, String B_SeatNo) {
+	public String setTicketDetils(String B_Date, String B_Time, String B_Status, String B_TicketNo, String B_SeatNo, String movieName) {
 		try {
 			// Change Ticket Details As per User Details
 			booking_date1.setText(B_Date);
@@ -164,12 +183,14 @@ public class TicketDownloadController {
 			seat_no1.setText(B_SeatNo);
 			ticket_no1.setText(B_TicketNo);
 			status1.setText(B_Status);
+			movie1.setText(movieName);
 
 			booking_date2.setText(B_Date);
 			booking_time2.setText(B_Time);
 			seat_no2.setText(B_SeatNo);
 			ticket_no2.setText(B_TicketNo);
 			status2.setText(B_Status);
+			movie2.setText(movieName);
 
 		} catch (Exception e) {
 			System.out.println(e.toString());

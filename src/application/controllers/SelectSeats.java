@@ -35,6 +35,8 @@ public class SelectSeats implements Initializable {
 
 	public String selectedSeats[] = {};
 
+	public String name;
+
 	public int totalPrice = 0, basePrice = 0;
 
 	@FXML
@@ -69,7 +71,7 @@ public class SelectSeats implements Initializable {
 
 	public void handleProceedToPaymentPageClick(ActionEvent event) throws IOException {
 		if(selectedSeats.length > 0){
-			util.updateMovieJson(selectedSeats, totalPrice/1000);
+			util.updateMovieJson(selectedSeats, totalPrice, basePrice, name);
 			@SuppressWarnings("unused")
 			MovieData moviedata = util.getMovieJson();
 	
@@ -120,13 +122,13 @@ public class SelectSeats implements Initializable {
 		return contains;
 	}
 
-	public int seatLevel(String str){
-		if(str.charAt(0) == 'A') {
-			return 2;
-		}else if(str.charAt(0) == 'H') {
-			return 1;
+	public int seatLevel(String str) {
+		if (str.startsWith("1")) {
+			return 2; // Premium (+70,000)
+		} else if (str.startsWith("20")) {
+			return 1; // VIP (+50,000)
 		}
-		return 0;
+		return 0; // Base
 	}
 
 	public String[] getUpdatedSelection(String[] orgArr, int method, String el) {
@@ -155,12 +157,12 @@ public class SelectSeats implements Initializable {
 		if (moviedata == null) {
 			cancelBtn.fire();
 		}
+        basePrice = moviedata.basePrice;
+		name = moviedata.name;
 
-		basePrice = moviedata.basePrice;
-
-		premiumPrice.setText(String.format("%,d VNĐ", (basePrice + 50) * 1000));
-		normalPrice.setText(String.format("%,d VNĐ", basePrice * 1000));
-		vipPrice.setText(String.format("%,d VNĐ", (basePrice + 70) * 1000));
+		premiumPrice.setText(String.format("%,d VNĐ", basePrice + 50000));
+		normalPrice.setText(String.format("%,d VNĐ", basePrice));
+		vipPrice.setText(String.format("%,d VNĐ", basePrice + 70000));
 
 		// double paneWidth = scrollPane.getWidth();
 		double paneWidth = Screen.getPrimary().getBounds().getWidth();
@@ -191,13 +193,10 @@ public class SelectSeats implements Initializable {
 				btn.setOnAction(event -> handleSelection(event));
 			}
 			if (i >= 190) {
-				totalPrice = !isBooked ? totalPrice + (basePrice + 50) * 1000 : totalPrice;
 				selectSeatsWrap1.add(btn, i % 10, i / 10);
 			} else if (i < 10) {
-				totalPrice = !isBooked ? totalPrice + (basePrice + 70) * 1000 : totalPrice;
 				selectSeatsWrap3.add(btn, i % 10, i / 10);
 			} else {
-				totalPrice = !isBooked ? totalPrice + basePrice * 1000 : totalPrice;
 				selectSeatsWrap2.add(btn, i % 10, 18 - i / 10);
 			}
 		}
@@ -212,20 +211,34 @@ public class SelectSeats implements Initializable {
 	public void handleSelection(ActionEvent event) {
 		Button btn = ((Button) event.getSource());
 		String seat = btn.getText();
-		// System.out.println(btn.getStyleClass());
-		boolean alreadySelected = Arrays.stream(selectedSeats).anyMatch(e -> e == btn.getText());
-
+		boolean alreadySelected = Arrays.stream(selectedSeats).anyMatch(e -> e.equals(seat)); // Sử dụng equals thay ==
 		if (alreadySelected) {
-			selectedSeats = Arrays.stream(selectedSeats).filter(el -> el != btn.getText()).toArray(String[]::new);
-			selectedSeats = Arrays.stream(selectedSeats).filter(el -> el != null).toArray(String[]::new);
+			// Bỏ chọn ghế
+			selectedSeats = Arrays.stream(selectedSeats).filter(el -> !el.equals(seat)).toArray(String[]::new);
 			btn.getStyleClass().remove("selected-seats");
 		} else {
-			// totalPrice =  ? totalPrice + basePrice + 50 : totalPrice;
-			selectedSeats = Arrays.copyOf(selectedSeats, selectedSeats.length + 1).clone();
-			selectedSeats[selectedSeats.length - 1] = btn.getText();
+			// Chọn ghế mới
+			selectedSeats = Arrays.copyOf(selectedSeats, selectedSeats.length + 1);
+			selectedSeats[selectedSeats.length - 1] = seat;
 			btn.getStyleClass().add("selected-seats");
 		}
-		// System.out.println(btn.getStyleClass() + " "+ selectedSeats.toString());
+
+		// Tính lại totalPrice từ selectedSeats
+		totalPrice = 0;
+		for (String selectedSeat : selectedSeats) {
+			int seatLevel = seatLevel(selectedSeat);  // Lấy cấp độ ghế
+			int seatPrice;
+
+			if (seatLevel == 2) {
+				seatPrice = basePrice + 70000;
+			} else if (seatLevel == 1) {
+				seatPrice = basePrice + 50000;
+			} else {
+				seatPrice = basePrice;
+			}
+
+			totalPrice += seatPrice;
+		}
 	}
 
 }

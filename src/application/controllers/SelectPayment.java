@@ -81,8 +81,7 @@ public class SelectPayment implements Initializable {
 		MovieData movieData = json.getMovieJson();
 		// Code for Setting the Movie Title From Database
 		MovieTitle.setText(movieData.name);
-		String price = String.format("%,d VNĐ", movieData.price * 1000);
-		Price.setText(price);
+		Price.setText(String.format("%,d VNĐ", movieData.totalPrice));
 	}
 
 	@FXML

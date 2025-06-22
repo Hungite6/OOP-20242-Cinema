@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.io.FileReader;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 
 public class JSONUtility {
 
@@ -182,14 +183,35 @@ public class JSONUtility {
 			// MovieData movieData = gson.fromJson(reader, MovieData.class);
 			JsonElement jsonElement = JsonParser.parseReader(reader);
 			JsonObject jsonObject = jsonElement.getAsJsonObject();
+
 			JsonArray arr = jsonObject.getAsJsonArray("bookedSeats");
 			String[] booked = new String[arr.size()];
 			for (int i = 0; i < arr.size(); i++) {
 				booked[i] = arr.get(i).getAsString();
 			}
-			MovieData movieData = new MovieData(jsonObject.get("id").getAsInt(), jsonObject.get("name").getAsString(),
-                    jsonObject.get("timing").getAsString(), booked, jsonObject.get("basePrice").getAsInt());
-			reader.close();
+			// Lấy selectedSeats
+			JsonArray selectedArray = jsonObject.getAsJsonArray("selectedSeats");
+			String[] selectedSeats = new String[selectedArray != null ? selectedArray.size() : 0];
+			if (selectedArray != null) {
+				for (int i = 0; i < selectedArray.size(); i++) {
+					selectedSeats[i] = selectedArray.get(i).getAsString();
+				}
+			}
+
+			// Lấy các trường khác với giá trị mặc định nếu null
+			int id = jsonObject.has("id") && !jsonObject.get("id").isJsonNull() ? jsonObject.get("id").getAsInt() : 0;
+			String name = jsonObject.has("name") && !jsonObject.get("name").isJsonNull() ? jsonObject.get("name").getAsString() : "";
+			String timing = jsonObject.has("timing") && !jsonObject.get("timing").isJsonNull() ? jsonObject.get("timing").getAsString() : "";
+			int basePrice = jsonObject.has("basePrice") && !jsonObject.get("basePrice").isJsonNull() ? jsonObject.get("basePrice").getAsInt() : 0;
+			int totalPrice = jsonObject.has("totalPrice") && !jsonObject.get("totalPrice").isJsonNull() ? jsonObject.get("totalPrice").getAsInt() : 0;
+			String selected = jsonObject.has("selected") && !jsonObject.get("selected").isJsonNull() ? jsonObject.get("selected").getAsString() : "";
+
+			// Tạo đối tượng MovieData
+			MovieData movieData = new MovieData(id, name, timing, booked, basePrice);
+			movieData.totalPrice = totalPrice;
+			movieData.selectedSeats = selectedSeats;
+			movieData.selected = selected;
+
 			return movieData;
 		} catch (IOException e) {
 			System.out.println("Error getting movie data: " + e.getMessage());
@@ -198,7 +220,7 @@ public class JSONUtility {
 	}
 
 	// Update movie data in JSON
-	public void updateMovieJson(String[] seats, int price) {
+	public void updateMovieJson(String[] seats, int totalPrice, int basePrice, String name) {
 		try {
 			FileReader reader = new FileReader(path_moviedata);
 			Gson gson = new GsonBuilder().setPrettyPrinting().create(); // For pretty printing JSON
@@ -208,7 +230,9 @@ public class JSONUtility {
 			// Update fields
 			movieData.selected = String.join(", ", seats);
 			movieData.selectedSeats = seats;
-			movieData.price = price;
+			movieData.totalPrice = totalPrice;
+			movieData.basePrice = basePrice;
+			movieData.name = name;
 
 			FileWriter writer = new FileWriter(path_moviedata);
 			gson.toJson(movieData, writer);

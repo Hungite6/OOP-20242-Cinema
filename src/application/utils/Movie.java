@@ -6,6 +6,7 @@ import javafx.scene.image.Image;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.net.MalformedURLException;
+import java.util.Date;
 
 public class Movie {
 	private String movieName, movieDescription;
@@ -14,6 +15,9 @@ public class Movie {
 	private String NextShow, Actor, moviePosterPath;
 	private int BoookedSeat, TotalSeat;
 	private int availableSeat;
+	private int id, basePrice;
+	private Date createdAt;
+	private Date updatedAt;
 
 	// -------------------- Các hàm chức năng để xử lý ảnh --------------------
 
@@ -62,6 +66,12 @@ public class Movie {
 
 	// -------------------- Các getter/setter dữ liệu --------------------
 
+	public int getBasePrice() {return basePrice;}
+
+	public void setBasePrice(int basePrice) {this.basePrice = basePrice;}
+	public int getId() {return id; }
+
+	public void setId(int id) {this.id = id; }
 	public String getMovieName() {
 		return movieName;
 	}
@@ -140,5 +150,22 @@ public class Movie {
 
 	public void setMovieActor(String Actor) {
 		this.Actor = Actor;
+	}
+
+	public Date getCreatedAt() {
+		return createdAt;
+	}
+
+	public void setCreatedAt(Date createdAt) {
+		this.createdAt = createdAt;
+	}
+
+	// Getter và Setter cho updatedAt
+	public Date getUpdatedAt() {
+		return updatedAt;
+	}
+
+	public void setUpdatedAt(Date updatedAt) {
+		this.updatedAt = updatedAt;
 	}
 }

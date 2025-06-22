@@ -22,7 +22,7 @@ public class Main extends Application {
 			Scene scene = new Scene(root, Color.rgb(19, 13, 14));
 
 			// stage title
-			primaryStage.setTitle("China China China");
+			primaryStage.setTitle("Hệ thống đặt vé xem phim");
 
 			// set application icon
 			URL iconPath = getClass().getResource("resources/icon.png");

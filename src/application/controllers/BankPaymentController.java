@@ -70,8 +70,7 @@ public class BankPaymentController {
 	public void getMoviePrice() {
 		JSONUtility json = new JSONUtility();
 		MovieData movieData = json.getMovieJson();
-		String price = String.format("%,d VNĐ", movieData.price);
-		MoviePrice.setText(price);
+		MoviePrice.setText(String.format("%,d VNĐ", movieData.totalPrice));
 	}
 
 	@FXML
